@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蜜蜂大战飞机 - 游戏展示页</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="navbar">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-gamepad"></i>
+                <span>蜜蜂大战飞机</span>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#home" class="nav-link active">首页</a></li>
+                    <li><a href="#about" class="nav-link">游戏介绍</a></li>
+                    <li><a href="#features" class="nav-link">特色功能</a></li>
+                    <li><a href="#preview" class="nav-link">游戏预览</a></li>
+                    <li><a href="#requirements" class="nav-link">系统需求</a></li>
+                    <li><a href="#download" class="nav-link">下载</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主页横幅 -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">蜜蜂大战飞机</h1>
+                <p class="hero-subtitle">刺激的飞机射击游戏，挑战你的反应和策略</p>
+                <div class="hero-buttons">
+                    <a href="#preview" class="btn btn-primary">在线试玩</a>
+                    <a href="#download" class="btn btn-secondary">下载游戏</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="game-preview-container">
+                    <canvas id="heroCanvas" width="460" height="720"></canvas>
+                    <div class="play-overlay">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 游戏介绍 -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">游戏介绍</h2>
+                <p class="section-subtitle">了解蜜蜂大战飞机的精彩世界</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>《蜜蜂大战飞机》是一款使用Python和Pygame开发的2D垂直滚动射击游戏。在游戏中，你将控制一架勇敢的蜜蜂飞机，对抗从天而降的敌机群。</p>
+                    <p>游戏采用面向对象设计，拥有流畅的动画效果和多种武器系统。玩家可以通过不同的按键切换武器，体验不同的战斗风格。游戏包含完整的计分系统和游戏状态管理，提供沉浸式的游戏体验。</p>
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-code"></i>
+                            <span>Python + Pygame开发</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-gamepad"></i>
+                            <span>流畅的游戏体验</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-trophy"></i>
+                            <span>挑战性关卡设计</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://picsum.photos/seed/beegame/600/400.jpg" alt="游戏截图">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 特色功能 -->
+    <section id="features" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">特色功能</h2>
+                <p class="section-subtitle">探索游戏的核心玩法和特色</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-crosshairs"></i>
+                    </div>
+                    <h3 class="feature-title">多种武器系统</h3>
+                    <p class="feature-description">游戏提供多种武器选择，包括基础子弹、中级武器和特殊技能，每种武器都有独特的攻击方式和效果。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="feature-title">计分系统</h3>
+                    <p class="feature-description">完整的计分系统记录你的游戏表现，挑战更高的分数，成为游戏高手。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="feature-title">流畅动画</h3>
+                    <p class="feature-description">精心设计的爆炸动画和游戏特效，提供视觉上的享受和沉浸式体验。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-keyboard"></i>
+                    </div>
+                    <h3 class="feature-title">简单操作</h3>
+                    <p class="feature-description">直观的键盘控制，左右移动躲避敌机，按键切换武器，简单易上手。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-redo"></i>
+                    </div>
+                    <h3 class="feature-title">游戏状态管理</h3>
+                    <p class="feature-description">完整的游戏状态管理，包括开始界面、游戏进行、游戏结束等，提供流畅的游戏流程。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3 class="feature-title">性能优化</h3>
+                    <p class="feature-description">优化的游戏性能，确保流畅运行，即使在较低的配置设备上也能享受游戏。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 游戏预览 -->
+    <section id="preview" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">游戏预览</h2>
+                <p class="section-subtitle">体验游戏的核心玩法</p>
+            </div>
+            <div class="preview-container">
+                <div class="preview-game">
+                    <div class="game-screen">
+                        <canvas id="gameCanvas" width="460" height="720"></canvas>
+                        <div class="game-controls">
+                            <div class="control-info">
+                                <p><strong>操作说明：</strong></p>
+                                <p>← → : 左右移动</p>
+                                <p>Q : 基础子弹</p>
+                                <p>W : 中级武器</p>
+                                <p>E : 高级武器</p>
+                                <p>R : 特殊技能</p>
+                            </div>
+                            <div class="control-buttons">
+                                <button id="startBtn" class="btn btn-primary">开始游戏</button>
+                                <button id="pauseBtn" class="btn btn-secondary">暂停</button>
+                                <button id="resetBtn" class="btn btn-secondary">重置</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="preview-screenshots">
+                    <h3>游戏截图</h3>
+                    <div class="screenshot-carousel">
+                        <div class="screenshot-item active">
+                            <img src="https://picsum.photos/seed/beegame1/460/720.jpg" alt="游戏截图1">
+                        </div>
+                        <div class="screenshot-item">
+                            <img src="https://picsum.photos/seed/beegame2/460/720.jpg" alt="游戏截图2">
+                        </div>
+                        <div class="screenshot-item">
+                            <img src="https://picsum.photos/seed/beegame3/460/720.jpg" alt="游戏截图3">
+                        </div>
+                        <div class="screenshot-item">
+                            <img src="https://picsum.photos/seed/beegame4/460/720.jpg" alt="游戏截图4">
+                        </div>
+                        <div class="screenshot-nav">
+                            <button class="nav-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                            <button class="nav-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                        <div class="screenshot-dots">
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 系统需求 -->
+    <section id="requirements" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">系统需求</h2>
+                <p class="section-subtitle">确保你的设备满足游戏运行要求</p>
+            </div>
+            <div class="requirements-content">
+                <div class="requirements-card">
+                    <h3>最低配置</h3>
+                    <ul>
+                        <li><strong>操作系统：</strong>Windows 7/8/10</li>
+                        <li><strong>处理器：</strong>Intel Core i3 或同等性能</li>
+                        <li><strong>内存：</strong>2GB RAM</li>
+                        <li><strong>显卡：</strong>集成显卡</li>
+                        <li><strong>存储空间：</strong>100MB 可用空间</li>
+                        <li><strong>Python版本：</strong>3.6或更高版本</li>
+                    </ul>
+                </div>
+                <div class="requirements-card">
+                    <h3>推荐配置</h3>
+                    <ul>
+                        <li><strong>操作系统：</strong>Windows 10</li>
+                        <li><strong>处理器：</strong>Intel Core i5 或更高</li>
+                        <li><strong>内存：</strong>4GB RAM</li>
+                        <li><strong>显卡：</strong>独立显卡</li>
+                        <li><strong>存储空间：</strong>200MB 可用空间</li>
+                        <li><strong>Python版本：</strong>3.8或更高版本</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 下载区域 -->
+    <section id="download" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">下载游戏</h2>
+                <p class="section-subtitle">获取最新版本的游戏</p>
+            </div>
+            <div class="download-content">
+                <div class="download-options">
+                    <div class="download-card">
+                        <div class="download-icon">
+                            <i class="fas fa-windows"></i>
+                        </div>
+                        <h3>Windows 版本</h3>
+                        <p>适用于 Windows 7/8/10/11</p>
+                        <div class="download-info">
+                            <p>版本: 1.0.0</p>
+                            <p>大小: 15MB</p>
+                            <p>更新日期: 2023-12-01</p>
+                        </div>
+                        <button class="btn btn-primary download-btn">
+                            <i class="fas fa-download"></i> 下载
+                        </button>
+                    </div>
+                    <div class="download-card">
+                        <div class="download-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>源代码</h3>
+                        <p>获取完整源代码，自行编译运行</p>
+                        <div class="download-info">
+                            <p>版本: 1.0.0</p>
+                            <p>大小: 5MB</p>
+                            <p>更新日期: 2023-12-01</p>
+                        </div>
+                        <button class="btn btn-secondary download-btn">
+                            <i class="fab fa-github"></i> 查看源代码
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-gamepad"></i>
+                    <span>蜜蜂大战飞机</span>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="#about">游戏介绍</a></li>
+                        <li><a href="#features">特色功能</a></li>
+                        <li><a href="#requirements">系统需求</a></li>
+                        <li><a href="#download">下载</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 蜜蜂大战飞机. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/optimization.js"></script>
+</body>
+</html>
