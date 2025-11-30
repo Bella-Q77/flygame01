@@ -26,6 +26,27 @@
                     <li><a href="#download" class="nav-link">下载</a></li>
                 </ul>
             </nav>
+    <title>飞行射击游戏 - FlyGame01</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-rocket"></i>
+                <span>FlyGame01</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#about">游戏介绍</a></li>
+                <li><a href="#features">特色功能</a></li>
+                <li><a href="#screenshots">游戏截图</a></li>
+                <li><a href="#requirements">系统需求</a></li>
+                <li><a href="#play">立即体验</a></li>
+            </ul>
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -50,6 +71,30 @@
                     <canvas id="heroCanvas" width="460" height="720"></canvas>
                     <div class="play-overlay">
                         <i class="fas fa-play"></i>
+    </nav>
+
+    <!-- 首页横幅 -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="gradient-text">飞行射击游戏</span>
+                    <br>
+                    FlyGame01
+                </h1>
+                <p class="hero-subtitle">体验刺激的空中战斗，挑战你的反应速度和策略思维</p>
+                <div class="hero-buttons">
+                    <a href="#play" class="btn btn-primary">立即体验</a>
+                    <a href="#about" class="btn btn-secondary">了解更多</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="game-preview">
+                    <div class="game-screen">
+                        <div class="game-placeholder">
+                            <i class="fas fa-gamepad"></i>
+                            <p>游戏预览</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -84,6 +129,35 @@
                 </div>
                 <div class="about-image">
                     <img src="https://picsum.photos/seed/beegame/600/400.jpg" alt="游戏截图">
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>游戏介绍</h2>
+                <p>FlyGame01是一款基于Python Pygame开发的经典飞行射击游戏，带你回到童年的游戏时光</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>游戏背景</h3>
+                    <p>在未来的宇宙空间中，地球面临着外星入侵者的威胁。作为一名勇敢的飞行员，你需要驾驶你的战斗机，消灭所有敌人，保卫地球的安全。</p>
+                    <h3>游戏目标</h3>
+                    <p>控制你的战斗机，躲避敌人的攻击，同时发射子弹消灭敌人。随着游戏的进行，敌人的数量和速度会逐渐增加，挑战你的反应速度和策略思维。</p>
+                </div>
+                <div class="about-features">
+                    <div class="feature-item">
+                        <i class="fas fa-bolt"></i>
+                        <h4>流畅操作</h4>
+                        <p>简单直观的控制方式，让你轻松上手</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-explosion"></i>
+                        <h4>刺激战斗</h4>
+                        <p>丰富的敌人类型和攻击方式，带来刺激的战斗体验</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-trophy"></i>
+                        <h4>挑战关卡</h4>
+                        <p>随着游戏进行，敌人会越来越强大，挑战你的极限</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -95,6 +169,11 @@
             <div class="section-header">
                 <h2 class="section-title">特色功能</h2>
                 <p class="section-subtitle">探索游戏的核心玩法和特色</p>
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>特色功能</h2>
+                <p>FlyGame01拥有丰富的游戏功能，为你带来极致的游戏体验</p>
             </div>
             <div class="features-grid">
                 <div class="feature-card">
@@ -138,6 +217,45 @@
                     </div>
                     <h3 class="feature-title">性能优化</h3>
                     <p class="feature-description">优化的游戏性能，确保流畅运行，即使在较低的配置设备上也能享受游戏。</p>
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <h3>多种飞机选择</h3>
+                    <p>提供多种不同性能的战斗机供你选择，每种飞机都有独特的特点和武器系统</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3>多种武器系统</h3>
+                    <p>从普通子弹到激光武器，多种武器系统供你使用，应对不同的敌人和战斗场景</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>道具系统</h3>
+                    <p>游戏中会随机掉落各种道具，包括生命恢复、武器升级、护盾等，帮助你更好地完成任务</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>成就系统</h3>
+                    <p>完成各种挑战和任务，获得成就和奖励，展示你的游戏实力</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-ranking-star"></i>
+                    </div>
+                    <h3>排行榜</h3>
+                    <p>与全球玩家一较高下，看看谁是真正的飞行射击大师</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3>动感音效</h3>
+                    <p>震撼的音效和背景音乐，为你带来沉浸式的游戏体验</p>
                 </div>
             </div>
         </div>
@@ -198,6 +316,30 @@
                         </div>
                     </div>
                 </div>
+    <!-- 游戏截图 -->
+    <section id="screenshots" class="screenshots">
+        <div class="container">
+            <div class="section-header">
+                <h2>游戏截图</h2>
+                <p>欣赏FlyGame01的精美游戏画面</p>
+            </div>
+            <div class="screenshot-carousel">
+                <div class="carousel-container">
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/800x450/333/fff?text=Game+Screenshot+1" alt="游戏截图1">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/800x450/333/fff?text=Game+Screenshot+2" alt="游戏截图2">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/800x450/333/fff?text=Game+Screenshot+3" alt="游戏截图3">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/800x450/333/fff?text=Game+Screenshot+4" alt="游戏截图4">
+                    </div>
+                </div>
+                <button class="carousel-btn prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="carousel-btn next"><i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
     </section>
@@ -219,6 +361,23 @@
                         <li><strong>显卡：</strong>集成显卡</li>
                         <li><strong>存储空间：</strong>100MB 可用空间</li>
                         <li><strong>Python版本：</strong>3.6或更高版本</li>
+    <section id="requirements" class="requirements">
+        <div class="container">
+            <div class="section-header">
+                <h2>系统需求</h2>
+                <p>确保你的电脑满足以下系统要求，以获得最佳游戏体验</p>
+            </div>
+            <div class="requirements-grid">
+                <div class="requirements-card">
+                    <h3>最低配置</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> 操作系统：Windows 7/8/10</li>
+                        <li><i class="fas fa-check"></i> 处理器：Intel Core 2 Duo 或 AMD Athlon 64 X2</li>
+                        <li><i class="fas fa-check"></i> 内存：2 GB RAM</li>
+                        <li><i class="fas fa-check"></i> 显卡：集成显卡</li>
+                        <li><i class="fas fa-check"></i> 存储空间：500 MB 可用空间</li>
+                        <li><i class="fas fa-check"></i> Python 3.6+</li>
+                        <li><i class="fas fa-check"></i> Pygame 1.9.6+</li>
                     </ul>
                 </div>
                 <div class="requirements-card">
@@ -230,6 +389,13 @@
                         <li><strong>显卡：</strong>独立显卡</li>
                         <li><strong>存储空间：</strong>200MB 可用空间</li>
                         <li><strong>Python版本：</strong>3.8或更高版本</li>
+                        <li><i class="fas fa-check"></i> 操作系统：Windows 10/11</li>
+                        <li><i class="fas fa-check"></i> 处理器：Intel Core i5 或 AMD Ryzen 5</li>
+                        <li><i class="fas fa-check"></i> 内存：4 GB RAM</li>
+                        <li><i class="fas fa-check"></i> 显卡：独立显卡（NVIDIA GeForce GTX 1050 或 AMD Radeon RX 560）</li>
+                        <li><i class="fas fa-check"></i> 存储空间：1 GB 可用空间</li>
+                        <li><i class="fas fa-check"></i> Python 3.8+</li>
+                        <li><i class="fas fa-check"></i> Pygame 2.0+</li>
                     </ul>
                 </div>
             </div>
@@ -274,6 +440,60 @@
                         <button class="btn btn-secondary download-btn">
                             <i class="fab fa-github"></i> 查看源代码
                         </button>
+    <!-- 游戏体验 -->
+    <section id="play" class="play">
+        <div class="container">
+            <div class="section-header">
+                <h2>立即体验</h2>
+                <p>现在就开始你的飞行射击冒险之旅</p>
+            </div>
+            <div class="play-content">
+                <div class="game-container">
+                    <div class="game-wrapper">
+                        <div class="game-frame">
+                            <div class="game-controls">
+                                <h3>游戏控制说明</h3>
+                                <ul>
+                                    <li><i class="fas fa-arrow-up"></i> 上箭头：向上移动</li>
+                                    <li><i class="fas fa-arrow-down"></i> 下箭头：向下移动</li>
+                                    <li><i class="fas fa-arrow-left"></i> 左箭头：向左移动</li>
+                                    <li><i class="fas fa-arrow-right"></i> 右箭头：向右移动</li>
+                                    <li><i class="fas fa-space"></i> 空格键：发射子弹</li>
+                                    <li><i class="fas fa-escape"></i> ESC键：退出游戏</li>
+                                </ul>
+                            </div>
+                            <div class="game-embed">
+                                <div class="game-placeholder-large">
+                                    <i class="fas fa-gamepad"></i>
+                                    <p>游戏体验区域</p>
+                                    <p class="game-note">由于这是一个Python Pygame游戏，你需要下载并运行游戏文件才能体验完整游戏</p>
+                                    <a href="#" class="btn btn-primary">下载游戏</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="download-section">
+                    <h3>下载游戏</h3>
+                    <p>点击下方按钮下载完整游戏文件</p>
+                    <div class="download-buttons">
+                        <a href="#" class="btn btn-primary">
+                            <i class="fas fa-download"></i>
+                            下载Windows版本
+                        </a>
+                        <a href="#" class="btn btn-secondary">
+                            <i class="fab fa-github"></i>
+                            查看源代码
+                        </a>
+                    </div>
+                    <div class="download-info">
+                        <h4>安装说明</h4>
+                        <ol>
+                            <li>下载游戏压缩包</li>
+                            <li>解压到任意文件夹</li>
+                            <li>双击运行gameDemo1.exe文件</li>
+                            <li>开始游戏</li>
+                        </ol>
                     </div>
                 </div>
             </div>
@@ -304,6 +524,38 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2023 蜜蜂大战飞机. 保留所有权利.</p>
+                <div class="footer-section">
+                    <h3>FlyGame01</h3>
+                    <p>一款基于Python Pygame开发的经典飞行射击游戏</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="#home">首页</a></li>
+                        <li><a href="#about">游戏介绍</a></li>
+                        <li><a href="#features">特色功能</a></li>
+                        <li><a href="#screenshots">游戏截图</a></li>
+                        <li><a href="#requirements">系统需求</a></li>
+                        <li><a href="#play">立即体验</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>联系我们</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> contact@flygame01.com</li>
+                        <li><i class="fas fa-phone"></i> +86 123 4567 8900</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 中国·北京</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 FlyGame01. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -311,5 +563,6 @@
     <script src="js/main.js"></script>
     <script src="js/carousel.js"></script>
     <script src="js/optimization.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
