@@ -3,6 +3,488 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鑿婅姳渚犲ぇ鎴樻鑺辨€? - 飞行射击游戏</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', 'SimHei', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 导航栏 */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 20px;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #667eea;
+        }
+
+        /* 英雄区域 */
+        .hero {
+            margin-top: 80px;
+            padding: 100px 0;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* 游戏介绍 */
+        .game-intro {
+            background: white;
+            padding: 100px 0;
+        }
+
+        .game-intro .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .game-intro h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .game-intro p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #666;
+        }
+
+        .game-intro .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .game-intro .feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #667eea;
+        }
+
+        .game-intro .feature i {
+            font-size: 1.2rem;
+        }
+
+        .game-preview {
+            background: #f8f9fa;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .game-preview canvas {
+            width: 100%;
+            border-radius: 10px;
+            background: #000;
+        }
+
+        /* 特色功能 */
+        .features-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 100px 0;
+        }
+
+        .features-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-card .icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* 截图轮播 */
+        .screenshots {
+            background: white;
+            padding: 100px 0;
+        }
+
+        .screenshots h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .slick-slider {
+            margin: 0 -10px;
+        }
+
+        .slick-slide {
+            padding: 0 10px;
+        }
+
+        .screenshot-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .screenshot-item:hover {
+            transform: scale(1.05);
+        }
+
+        .screenshot-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* 系统需求 */
+        .system-requirements {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 100px 0;
+            color: white;
+        }
+
+        .system-requirements h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .requirement-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .requirement-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .requirement-card ul {
+            list-style: none;
+        }
+
+        .requirement-card li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .requirement-card li i {
+            color: #4CAF50;
+        }
+
+        /* 页脚 */
+        footer {
+            background: #333;
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        footer .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        footer .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        footer .footer-section p,
+        footer .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        footer .footer-section a:hover {
+            color: #667eea;
+        }
+
+        footer .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        footer .social-links a {
+            width: 40px;
+            height: 40px;
+            background: #667eea;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        footer .social-links a:hover {
+            transform: translateY(-3px);
+        }
+
+        footer .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #555;
+            color: #ccc;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .game-intro .container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .features-grid,
+            .requirements-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* 加载动画 */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- 加载动画 -->
+    <div class="loader" id="loader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- 导航栏 -->
+    <nav>
+        <div class="container">
+            <div class="logo">
+                    <i class="fas fa-plane"></i>
+                    飞行射击游戏
+                </div>
+            <ul>
+                <li><a href="#home">首页</a></li>
+                <li><a href="#intro">游戏介绍</a></li>
+                <li><a href="#features">特色功能</a></li>
+                <li><a href="#screenshots">游戏截图</a></li>
+                <li><a href="#requirements">系统需求</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>飞行射击游戏</h1>
+            <p>一款经典的飞行射击游戏，带你重温童年的乐趣</p>
+            <div class="hero-buttons">
+                <a href="#intro" class="btn btn-primary">
+                    <i class="fas fa-play"></i>
+                    开始游戏
+                </a>
+                <a href="#screenshots" class="btn btn-secondary">
+                    <i class="fas fa-images"></i>
+                    查看截图
+                </a>
     <title>蜜蜂大战飞机 - 游戏展示页</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -102,6 +584,41 @@
     </section>
 
     <!-- 游戏介绍 -->
+    <section class="game-intro" id="intro">
+        <div class="container">
+            <div>
+                <h2>游戏介绍</h2>
+                <p>《鑿婅姳渚犲ぇ鎴樻鑺辨€?》是一款经典的飞行射击游戏，玩家将驾驶自己的战斗机，在广阔的天空中与敌人展开激烈的战斗。</p>
+                <p>游戏采用了精美的画面和流畅的操作，让玩家能够体验到真实的空中战斗快感。同时，游戏还提供了多种不同的关卡和敌人，让玩家能够不断挑战自己的极限。</p>
+                
+                <div class="features">
+                    <div class="feature">
+                        <i class="fas fa-gamepad"></i>
+                        <span>简单易上手的操作</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-bullseye"></i>
+                        <span>精准的射击系统</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-skull-crossbones"></i>
+                        <span>多样化的敌人类型</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-trophy"></i>
+                        <span>丰富的关卡挑战</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="game-preview">
+                <h3 style="margin-bottom: 1rem; color: #333;">游戏预览</h3>
+                <canvas id="gameCanvas" width="460" height="720"></canvas>
+                <p style="margin-top: 1rem; color: #666; font-size: 0.9rem;">
+                    <i class="fas fa-info-circle"></i>
+                    使用方向键控制飞机移动，空格键发射子弹
+                </p>
+            </div>
     <section id="about" class="section">
         <div class="container">
             <div class="section-header">
@@ -164,6 +681,56 @@
     </section>
 
     <!-- 特色功能 -->
+    <section class="features-section" id="features">
+        <div class="container">
+            <h2>特色功能</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>高速飞行体验</h3>
+                    <p>游戏采用了流畅的动画效果和高速的飞行机制，让玩家能够体验到真实的空中飞行快感。</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="icon">
+                        <i class="fas fa-crosshairs"></i>
+                    </div>
+                    <h3>精准射击系统</h3>
+                    <p>游戏提供了精准的射击系统，玩家可以通过空格键发射子弹，击中敌人获得分数。</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>多样化防御机制</h3>
+                    <p>游戏提供了多种不同的防御机制，玩家可以通过收集道具来增强自己的防御能力。</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3>炫酷爆炸效果</h3>
+                    <p>游戏采用了炫酷的爆炸效果，当玩家击中敌人时，会产生华丽的爆炸动画，增强游戏的视觉体验。</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>分数排行榜</h3>
+                    <p>游戏提供了分数排行榜功能，玩家可以将自己的分数上传到排行榜，与其他玩家进行比较。</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3>动感背景音乐</h3>
+                    <p>游戏采用了动感的背景音乐，让玩家在游戏过程中能够感受到强烈的节奏感和代入感。</p>
     <section id="features" class="section section-alt">
         <div class="container">
             <div class="section-header">
@@ -261,6 +828,23 @@
         </div>
     </section>
 
+    <!-- 截图轮播 -->
+    <section class="screenshots" id="screenshots">
+        <div class="container">
+            <h2>游戏截图</h2>
+            <div class="screenshot-slider">
+                <div class="screenshot-item">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='460' height='720'%3E%3Crect fill='%23667eea' width='460' height='720'/%3E%3Ctext fill='%23ffffff' font-family='Arial' font-size='24' x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle'%3E游戏截图 1%3C/text%3E%3C/svg%3E" alt="游戏截图 1">
+                </div>
+                <div class="screenshot-item">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='460' height='720'%3E%3Crect fill='%23764ba2' width='460' height='720'/%3E%3Ctext fill='%23ffffff' font-family='Arial' font-size='24' x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle'%3E游戏截图 2%3C/text%3E%3C/svg%3E" alt="游戏截图 2">
+                </div>
+                <div class="screenshot-item">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='460' height='720'%3E%3Crect fill='%23f093fb' width='460' height='720'/%3E%3Ctext fill='%23ffffff' font-family='Arial' font-size='24' x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle'%3E游戏截图 3%3C/text%3E%3C/svg%3E" alt="游戏截图 3">
+                </div>
+                <div class="screenshot-item">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='460' height='720'%3E%3Crect fill='%234facfe' width='460' height='720'/%3E%3Ctext fill='%23ffffff' font-family='Arial' font-size='24' x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle'%3E游戏截图 4%3C/text%3E%3C/svg%3E" alt="游戏截图 4">
+                </div>
     <!-- 游戏预览 -->
     <section id="preview" class="section">
         <div class="container">
@@ -345,6 +929,31 @@
     </section>
 
     <!-- 系统需求 -->
+    <section class="system-requirements" id="requirements">
+        <div class="container">
+            <h2>系统需求</h2>
+            <div class="requirements-grid">
+                <div class="requirement-card">
+                    <h3>最低配置</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> 操作系统: Windows 7/8/10</li>
+                        <li><i class="fas fa-check-circle"></i> 处理器: Intel Core 2 Duo 2.4GHz</li>
+                        <li><i class="fas fa-check-circle"></i> 内存: 2GB RAM</li>
+                        <li><i class="fas fa-check-circle"></i> 显卡: NVIDIA GeForce 8600 GT</li>
+                        <li><i class="fas fa-check-circle"></i> 存储空间: 500MB 可用空间</li>
+                        <li><i class="fas fa-check-circle"></i> 声卡: DirectX 9.0c 兼容声卡</li>
+                    </ul>
+                </div>
+                
+                <div class="requirement-card">
+                    <h3>推荐配置</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> 操作系统: Windows 10/11</li>
+                        <li><i class="fas fa-check-circle"></i> 处理器: Intel Core i5 3.0GHz</li>
+                        <li><i class="fas fa-check-circle"></i> 内存: 4GB RAM</li>
+                        <li><i class="fas fa-check-circle"></i> 显卡: NVIDIA GeForce GTX 660</li>
+                        <li><i class="fas fa-check-circle"></i> 存储空间: 1GB 可用空间</li>
+                        <li><i class="fas fa-check-circle"></i> 声卡: DirectX 11 兼容声卡</li>
     <section id="requirements" class="section section-alt">
         <div class="container">
             <div class="section-header">
@@ -402,6 +1011,254 @@
         </div>
     </section>
 
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-section">
+                <h3>关于游戏</h3>
+                <p>《鑿婅姳渚犲ぇ鎴樻鑺辨€?》是一款经典的飞行射击游戏，由专业的游戏开发团队精心打造。</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>快速链接</h3>
+                <a href="#home">首页</a>
+                <a href="#intro">游戏介绍</a>
+                <a href="#features">特色功能</a>
+                <a href="#screenshots">游戏截图</a>
+                <a href="#requirements">系统需求</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>联系方式</h3>
+                <p><i class="fas fa-envelope"></i> support@flygame.com</p>
+                <p><i class="fas fa-phone"></i> +86 123 4567 8910</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 鑿婅姳渚犲ぇ鎴樻鑺辨€? 游戏开发团队. 保留所有权利.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        // 加载动画
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loader').classList.add('hidden');
+            }, 500);
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 截图轮播
+        $(document).ready(function() {
+            $('.screenshot-slider').slick({
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                arrows: true,
+                dots: true,
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 1
+                        }
+                    },
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 2
+                        }
+                    }
+                ]
+            });
+        });
+
+        // 游戏预览
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // 游戏对象
+        let player = {
+            x: canvas.width / 2 - 24,
+            y: canvas.height - 100,
+            width: 48,
+            height: 48,
+            speed: 5,
+            color: '#4CAF50'
+        };
+
+        let bullets = [];
+        let enemies = [];
+        let keys = {};
+
+        // 键盘事件
+        document.addEventListener('keydown', function(e) {
+            keys[e.key] = true;
+            
+            // 空格键发射子弹
+            if (e.key === ' ') {
+                e.preventDefault();
+                bullets.push({
+                    x: player.x + player.width / 2 - 2,
+                    y: player.y,
+                    width: 4,
+                    height: 10,
+                    speed: 8,
+                    color: '#FFD700'
+                });
+            }
+        });
+
+        document.addEventListener('keyup', function(e) {
+            keys[e.key] = false;
+        });
+
+        // 生成敌人
+        function spawnEnemy() {
+            enemies.push({
+                x: Math.random() * (canvas.width - 48),
+                y: -48,
+                width: 48,
+                height: 48,
+                speed: 2,
+                color: '#F44336'
+            });
+        }
+
+        // 游戏循环
+        function gameLoop() {
+            // 清空画布
+            ctx.fillStyle = '#000';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // 绘制背景星星
+            ctx.fillStyle = '#FFF';
+            for (let i = 0; i < 50; i++) {
+                let x = (i * 137.5) % canvas.width;
+                let y = (i * 197.3) % canvas.height;
+                ctx.fillRect(x, y, 2, 2);
+            }
+
+            // 移动玩家
+            if (keys['ArrowLeft'] && player.x > 0) {
+                player.x -= player.speed;
+            }
+            if (keys['ArrowRight'] && player.x < canvas.width - player.width) {
+                player.x += player.speed;
+            }
+            if (keys['ArrowUp'] && player.y > 0) {
+                player.y -= player.speed;
+            }
+            if (keys['ArrowDown'] && player.y < canvas.height - player.height) {
+                player.y += player.speed;
+            }
+
+            // 绘制玩家
+            ctx.fillStyle = player.color;
+            ctx.fillRect(player.x, player.y, player.width, player.height);
+            
+            // 绘制玩家飞机形状
+            ctx.fillStyle = '#2E7D32';
+            ctx.beginPath();
+            ctx.moveTo(player.x + player.width / 2, player.y);
+            ctx.lineTo(player.x, player.y + player.height);
+            ctx.lineTo(player.x + player.width, player.y + player.height);
+            ctx.closePath();
+            ctx.fill();
+
+            // 更新和绘制子弹
+            bullets.forEach((bullet, index) => {
+                bullet.y -= bullet.speed;
+                
+                // 移除超出画布的子弹
+                if (bullet.y < 0) {
+                    bullets.splice(index, 1);
+                }
+                
+                // 绘制子弹
+                ctx.fillStyle = bullet.color;
+                ctx.fillRect(bullet.x, bullet.y, bullet.width, bullet.height);
+            });
+
+            // 生成敌人
+            if (Math.random() < 0.02) {
+                spawnEnemy();
+            }
+
+            // 更新和绘制敌人
+            enemies.forEach((enemy, index) => {
+                enemy.y += enemy.speed;
+                
+                // 移除超出画布的敌人
+                if (enemy.y > canvas.height) {
+                    enemies.splice(index, 1);
+                }
+                
+                // 绘制敌人
+                ctx.fillStyle = enemy.color;
+                ctx.fillRect(enemy.x, enemy.y, enemy.width, enemy.height);
+                
+                // 绘制敌人飞机形状
+                ctx.fillStyle = '#C62828';
+                ctx.beginPath();
+                ctx.moveTo(enemy.x + enemy.width / 2, enemy.y + enemy.height);
+                ctx.lineTo(enemy.x, enemy.y);
+                ctx.lineTo(enemy.x + enemy.width, enemy.y);
+                ctx.closePath();
+                ctx.fill();
+            });
+
+            // 碰撞检测
+            bullets.forEach((bullet, bulletIndex) => {
+                enemies.forEach((enemy, enemyIndex) => {
+                    if (bullet.x < enemy.x + enemy.width &&
+                        bullet.x + bullet.width > enemy.x &&
+                        bullet.y < enemy.y + enemy.height &&
+                        bullet.y + bullet.height > enemy.y) {
+                        
+                        // 移除碰撞的子弹和敌人
+                        bullets.splice(bulletIndex, 1);
+                        enemies.splice(enemyIndex, 1);
+                    }
+                });
+            });
+
+            // 继续游戏循环
+            requestAnimationFrame(gameLoop);
+        }
+
+        // 开始游戏循环
+        gameLoop();
+    </script>
+</body>
+</html>
     <!-- 下载区域 -->
     <section id="download" class="section">
         <div class="container">
